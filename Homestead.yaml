@@ -1,0 +1,62 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 2
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+#    - map: ~/beacon.shineon.com
+#      to: /home/vagrant/beacon.shineon.com
+    - map: ~/fulfillment.shineon.com
+      to: /home/vagrant/fulfillment.shineon.com
+#    - map: ~/research.shineon.com
+#      to: /home/vagrant/research.shineon.com
+
+sites:
+    - map: local.api.shineon.com
+      to: /home/vagrant/fulfillment.shineon.com/public
+      php: "7.2"
+    - map: local.admin.shineon.com
+      to: /home/vagrant/fulfillment.shineon.com/public
+      php: "7.2"
+    - map: local.affiliate.shineon.com
+      to: /home/vagrant/fulfillment.shineon.com/public
+      php: "7.2"
+#    - map: local.beacon.shineon.com
+#      to: /home/vagrant/beacon.shineon.com/public
+    - map: local.platform.shineon.com
+      to: /home/vagrant/fulfillment.shineon.com/public
+      php: "7.2"
+    - map: local.fulfillment.shineon.com
+      to: /home/vagrant/fulfillment.shineon.com/public
+      php: "7.2"
+#    - map: local.research.shineon.com
+#      to: /home/vagrant/research.shineon.com/public
+# landing pages with special locales
+    - map: local.vn.shineon.com
+      to: /home/vagrant/fulfillment.shineon.com/public
+      php: "7.2"
+    - map: local.ph.shineon.com
+      to: /home/vagrant/fulfillment.shineon.com/public
+      php: "7.2"
+
+databases:
+    - fulfillment
+#    - fulfillment_research
+
+features:
+    - mariadb: false
+    - ohmyzsh: false
+    - webdriver: false
+
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
