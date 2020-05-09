@@ -119,6 +119,7 @@ sudo nano ~/research.shineon.com/.env
 
 1. `vagrant box add laravel/homestead`
 1. `git clone https://github.com/ShineOnCom/homestead.git ~/Homestead`
+1. `git checkout release`
 1. `cd ~/Homestead`
 1. `bash init.sh`
 1. Test vagrant: 
