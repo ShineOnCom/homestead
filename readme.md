@@ -7,32 +7,31 @@
 
 ## Introduction
 
-Laravel Homestead is an official, pre-packaged Vagrant box that provides you a wonderful development environment without requiring you to install PHP, a web server, and any other server software on your local machine. No more worrying about messing up your operating system! Vagrant boxes are completely disposable. If something goes wrong, you can destroy and re-create the box in minutes!
+Laravel Homestead is an official, pre-packaged Vagrant box that provides you a wonderful development environment so you don't have to maintain a local dev environment for your specific machine. No more worrying about messing up your operating system! Vagrant boxes are completely disposable. If something goes wrong, you can destroy and re-create the box in minutes!
 
 Homestead runs on any Windows, Mac, or Linux system, and includes the Nginx web server, PHP 7.2, MySQL, Postgres, Redis, Memcached, Node, and all of the other goodies you need to develop amazing Laravel applications.
 
-Official documentation [is located here](http://laravel.com/docs/homestead). READ THIS but don't do anything and return back here.
+Official documentation [is located here](http://laravel.com/docs/homestead). PLEASE READ THIS, but don't do anything and return back here.
 
 ## Changes in this fork.
 
-### Modifications in `/resources` will be scaffolded in `Step 5a`:
+> Some files have been removed from `.gitignore`
 
-> The following has been added to `after.sh`
+- `after.sh`
+- `aliases`
+- `Homestead.yaml`
 
-* `composer install`
-* `npm install`
+These three files are already setup for you, so you **DO NOT** need to `bash init.sh`.
 
-> Some manual stuff for ...
-
-* Setup Imagemagick for php 7.2
+If further improvements are needed for our local devops, you can probably accomplish it by updating these three files.
 
 ## Getting Started
 
 ### Step 1: Some installers
 
-1. [Virtual Box 5.1 or higher](https://www.virtualbox.org/)
-1. [Vagrant 1.9 or higher](https://www.vagrantup.com/)
-1. [Node and NPM](https://nodejs.org/en/download/)
+1. [VirtualBox](https://www.virtualbox.org/)
+1. [Vagrant](https://www.vagrantup.com/)
+1. [Node LTS](https://nodejs.org/en/download/)
 
 ### Step 2: Add your ssh key to Github
 
@@ -115,52 +114,16 @@ sudo nano ~/research.shineon.com/.env
 
 > See [wiki](https://github.com/ShineOnCom/research/wiki)
 
-### Step 5a: Pull down the ShineOn Homestead repo.
+### Step 5: Pull down the ShineOn Homestead repo.
 
-1. `vagrant box add laravel/homestead`
 1. `git clone https://github.com/ShineOnCom/homestead.git ~/Homestead`
 1. `git checkout release`
 1. `cd ~/Homestead`
-1. `bash init.sh`
 1. Test vagrant: 
     1. `vagrant up --provision`
     1. `vagrant ssh`
     1. `cd ~/fulfillment.shineon.com`
     1. `php artisan`
-    1. Did artisan break? You're almost done...
-    1. Run the following manually for now, `after.sh` isn't able to suppress all interactivity.
-
-### DEPRECATED. Step 5b: Vagrant SSH and install Imagick (in `vagrant ssh`)
-
-> THIS STEP MAY BE SKIPPED IF YOU'VE SETUP AFTER MAY 2020
-
-This is annoying, but some commands that we need cannot escape interactivity, figure this out and I'll give you an attaboy.
-
-```
-sudo apt-add-repository ppa:ondrej/php
-sudo apt-get install -y php7.2-dev pkg-config libmagickwand-dev
-sudo pecl install imagick-beta
-# keep yours
-
-sudo bash -c 'echo -e "extension=imagick.so\n" >> /etc/php/7.2/mods-available/imagemagick.ini'
-sudo ln -sf /etc/php/7.2/mods-available/imagemagick.ini /etc/php/7.2/fpm/conf.d/20-imagemagick.ini
-sudo ln -sf /etc/php/7.2/mods-available/imagemagick.ini /etc/php/7.2/cli/conf.d/20-imagemagick.ini
-sudo service php7.2-fpm restart
-```
-
-### Step 5c: Restart Vagrant
-
-```
-vagrant halt && vagrant up --provision
-```
-
-### Step 5d: Migrate (first timers only)
-
-> Do not forget to `vagrant ssh && cd ~/app-name-here` first
-
-```
-php artisan migrate
-```
 
 ### Step 6: Test the DB
 
@@ -172,18 +135,22 @@ php artisan migrate
 1. Database: `portal` or `fulfillment`
 1. Port: 3306
 
-### Step 7: Test the waters
-
-1. Visit [local.admin.shineon.com](http://local.shopify-app.shineon.com)
-1. See [shopify-app](https://github.com/ShineOnCom/shopify-app) "Additional Setup"
-
-### Step 8: Add more useful starter data.
+### Step 7: Add more useful starter data.
 
 Ask your manager for ... 
 
 - Access to `aws-stage` so you may download a more useful starter DB
 - A cloned copy of the staging CDN bucket in your name so you've got starter assets
 - For a queue on AWS to be setup for you
+- Help settings up a [Shopify Partner account](https://www.shopify.com/partners) and your first test store.
+
+### Step 8: Test the waters
+
+> YOU WILL NEED TO ACCEPT CERTIFICATES IN YOUR BROWSER
+
+1. Visit [https://local.admin.shineon.com](http://local.admin.shineon.com)
+1. Visit [https://local.fulfillment.shineon.com](http://local.fulfillment.shineon.com)
+1. See [shopify-app](https://github.com/ShineOnCom/shopify-app) "Additional Setup"
 
 ## Debugging Vagrant Problems
 
@@ -225,7 +192,7 @@ Make sure that you have checked "Cable Connected" in Virtualbox Network Configur
 
 ## Asset compilation
 
-Fulfillment uses Laravel 5.8, NPM 6.\~, NPM 3.\~, and Webpack for asset compilation. There is no need install / upgrade Node / NPM. See `package.json` file for most up to date dev commands.
+Fulfillment uses Laravel 6.~, NPM 12.\~, NPM 6.\~, and Webpack for asset compilation. There is no need install / upgrade Node / NPM. See `package.json` file for most up to date dev commands.
 
 ### November 2019 Update
 
@@ -253,7 +220,7 @@ The wikis for the [various github projects](https://github.com/ShineOnCom/shopif
 
 Get on slack and ask your mates.
 
-## HOMESTEAD UPGRADE GUIDE (for envs before May 2020)
+## MAY 2020 UPDATE. UPGRADE GUIDE
 
 1. BACKUP YOUR DATABASES
 1. `vagrant halt`
