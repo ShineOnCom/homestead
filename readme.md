@@ -164,6 +164,10 @@ Ask your manager for ...
 1. Visit [https://local.fulfillment.shineon.com](http://local.fulfillment.shineon.com)
 1. See [shopify-app](https://github.com/ShineOnCom/shopify-app) "Additional Setup"
 
+### Suggestions
+
+I recommend installing php7.2 and composer with [homebrew if you're on a Mac](https://brew.sh/). This will make composer a bit more tolerable to work about.
+
 ## Debugging Vagrant Problems
 
 ### Did you install Imagick?
