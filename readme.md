@@ -226,7 +226,7 @@ We also have some new dev commands.
 
 ### Committing / Code Pushes
 
-Before committing code or submitting pull requests on github, be sure you remember to `npm run dev-full`. This is in review right now as we've `npm run production` spikes the CPU on our EC2 servers.
+Before committing code or submitting pull requests on github, be sure you remember to `npm run dev-full`. On our main application server, we will run `npm run production` in our devops workflow on envoyer.
 
 ## More Documentation
 
