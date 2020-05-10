@@ -247,3 +247,4 @@ Get on slack and ask your mates.
 1. `git clone https://github.com/ShineOnCom/homestead.git ~/Homestead`
 1. `cd ~/Homestead`
 1. `vagrant up`
+1. IMPORT YOUR DATABASES
