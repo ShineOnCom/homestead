@@ -35,33 +35,45 @@ If further improvements are needed for our local devops, you can probably accomp
 
 ### Step 2: Add your ssh key to Github
 
+#### MAC / LINUX
+
 1. `ssh-keygen`
 1. `cat ~/.ssh/id_rsa.pub`
 1. Add your new public key to your [github](https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account) and [1password](https://shineon.1password.com)
 
+#### WINDOWS
+
+Use Putty
+
 ### Step 3: Update your hosts file
 
-  * ##### MAC
-    1. `sudo nano /private/etc/hosts`
-    1. Add the following:
-    1. `192.168.10.10 local.api.shineon.com`
-    1. `192.168.10.10 local.admin.shineon.com`
-    1. `192.168.10.10 local.affiliate.shineon.com`
-    1. `192.168.10.10 local.beacon.shineon.com`
-    1. `192.168.10.10 local.fulfillment.shineon.com`
-    1. `192.168.10.10 local.platform.shineon.com`
-    1. `192.168.10.10 local.research.shineon.com`
+#### MAC
 
-  * ##### LINUX
-    1. `sudo nano /etc/hosts`
-    1. Add the following:
-    1. `local.api.shineon.com 		    192.168.10.10`
-    1. `local.admin.shineon.com 		192.168.10.10`
-    1. `local.affiliate.shineon.com 	192.168.10.10`
-    1. `local.beacon.shineon.com 		192.168.10.10`
-    1. `local.fulfillment.shineon.com 	192.168.10.10`
-    1. `local.platform.shineon.com 	    192.168.10.10`
-    1. `local.research.shineon.com 		192.168.10.10`
+1. `sudo nano /private/etc/hosts`
+1. Add the following:
+1. `192.168.10.10 local.api.shineon.com`
+1. `192.168.10.10 local.admin.shineon.com`
+1. `192.168.10.10 local.affiliate.shineon.com`
+1. `192.168.10.10 local.beacon.shineon.com`
+1. `192.168.10.10 local.fulfillment.shineon.com`
+1. `192.168.10.10 local.platform.shineon.com`
+1. `192.168.10.10 local.research.shineon.com`
+
+#### LINUX
+
+1. `sudo nano /etc/hosts`
+1. Add the following:
+1. `local.api.shineon.com 		    192.168.10.10`
+1. `local.admin.shineon.com 		192.168.10.10`
+1. `local.affiliate.shineon.com 	192.168.10.10`
+1. `local.beacon.shineon.com 		192.168.10.10`
+1. `local.fulfillment.shineon.com 	192.168.10.10`
+1. `local.platform.shineon.com 	    192.168.10.10`
+1. `local.research.shineon.com 		192.168.10.10`
+
+#### Windows
+
+Check [this out](https://support.rackspace.com/how-to/modify-your-hosts-file/)
     
 ### Step 3: Clone Repos (you may not need access to all repos in this list)
 
