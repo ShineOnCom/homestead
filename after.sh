@@ -51,6 +51,7 @@ sudo mv wkhtmltox/bin/wk* /usr/bin/
 wkhtmltopdf --version
 
 # Run the above again if you don't see version output `wkhtmltopdf 0.12.4 (with patched qt)`
+# Emphasis on the `(with patched qt)` you'll have problems w/o this
 
 echo ""
 echo "---------------------------------------------------------------------------------"
