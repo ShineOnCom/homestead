@@ -40,6 +40,18 @@ sudo update-alternatives --set php /usr/bin/php7.2
 sudo update-alternatives --set php-config /usr/bin/php-config7.2
 sudo update-alternatives --set phpize /usr/bin/phpize7.2
 
+# Install wkhtmltopdf
+# Support https://github.com/barryvdh/laravel-snappy   https://github.com/KnpLabs/snappy
+sudo apt-get -y install xvfb libfontconfig wkhtmltopdf
+
+# Previous apt-get command may terminate before this runs
+wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+tar vxf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz 
+sudo mv wkhtmltox/bin/wk* /usr/bin/
+wkhtmltopdf --version
+
+# Run the above again if you don't see version output `wkhtmltopdf 0.12.4 (with patched qt)`
+
 echo ""
 echo "---------------------------------------------------------------------------------"
 echo "---------------------------------------------------------------------------------"
